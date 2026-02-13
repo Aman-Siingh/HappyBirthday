@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday My Love</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div id="particles-container"></div>
+
+    <header class="hero-section">
+    
+        <div class="hero-content">
+            <h1 class="title">Happy Birthday Dipali <br> <span id="typewriter"></span></h1>
+            <p class="subtitle">Today is all about celebrating you! ✨</p>
+            <button id="start-btn" onclick="scrollToMemories()">Lets  Start Celebrating 💖</button>
+        </div>
+
+        <div class="scattered-gallery">
+            <img src="assets/h2.jpeg" class="float-photo p1" alt="p1">
+            <img src="assets/h1.jpeg" class="float-photo p2" alt="p2">
+            <img src="assets/h1.jpeg" class="float-photo p3" alt="p3">
+            <img src="assets/cp.jpeg" class="float-photo p4" alt="p4">
+            <img src="assets/h3.jpeg" class="float-photo p5" alt="p5">
+            <img src="assets/IMG_0225.jpg" class="float-photo p6" alt="p6">
+            <img src="assets/h6.jpeg" class="float-photo p7" alt="p7">
+            <img src="assets/h4.jpeg" class="float-photo p8" alt="p8">
+        </div>
+
+    </header>
+
+    <section class="video-section hidden" id="video">
+        <h2>Our Moments in Motion 🎥</h2>
+        <div class="video-wrapper">
+            <video controls playsinline>
+                <source src="assets/1770615825786850.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </section>
+
+    <section id="memories" class="memories-section hidden">
+        <h2>Our Beautiful Memories</h2>
+        <div class="gallery">
+            <div class="photo-card">
+                <img src="assets/IMG_0225.jpg" alt="Memory">
+                <div class="overlay"><p>You're my favorite place to be.</p></div>
+            </div>
+            <div class="photo-card">
+                <img src="assets/m2.jpeg" alt="Memory">
+                <div class="overlay"><p>With you, everything feels right.</p></div>
+            </div>
+            <div class="photo-card">
+                <img src="assets/m3.jpeg" alt="Memory">
+                <div class="overlay"><p>Your smile is my happiness.</p></div>
+            </div>
+            <div class="photo-card">
+                <img src="assets/cp.jpeg" alt="Memory">
+                <div class="overlay"><p>Life is easier with you by my side.</p></div>
+            </div>
+            <div class="photo-card">
+                <img src="assets/iphone.jpeg" alt="Memory">
+                <div class="overlay"><p>Better together.</p></div>
+            </div>
+            <div class="photo-card">
+                <img src="assets/foot.jpeg" alt="Memory">
+                <div class="overlay"><p>Making every moment count.</p></div>
+            </div>
+         </div>
+    </section>
+
+    <section class="message-section hidden">
+        <div class="message-card">
+            <h2>A Special Message For You</h2>
+            <p>
+                "Happy birthday to the person who makes every day feel like home. More than just a partner, you’re my greatest support and my closest friend. Thank you for the way you understand me and for the life we’re building together. I’m so grateful to have you by my side through every chapter."
+                <br><br>
+                Here's to many more years of laughter, love, and beautiful memories together. - Aman 💕
+            </p>
+        </div>
+    </section>
+    <section id="gift-shop" class="shop-section hidden">
+    <h2>Pick Your Gifts 🎁</h2>
+    <p class="shop-subtitle">“Flowers and chocolates are complimentary.💐”</p>
+    
+    <div class="shop-grid">
+        <div class="product-card">
+            <div class="product-image">
+                <img src="assets/teddy.png" alt="Gift 1">
+            </div>
+            <div class="product-info">
+                <h3>Teddy Bear</h3>
+                <p class="price">Price: 3 Kisses</p>
+                <button class="add-btn" onclick="addToCart('Teddy Bear')">Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div class="product-image">
+                <img src="assets/watch.jpg" alt="Gift 2">
+            </div>
+            <div class="product-info">
+                <h3>Classic Watch</h3>
+                <p class="price">Price: 9 Kisses </p>
+                <button class="add-btn" onclick="addToCart('Watch')">Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div class="product-image">
+                <img src="assets/sweat.png" alt="Gift 3">
+            </div>
+            <div class="product-info">
+                <h3>Cute Sweater</h3>
+                <p class="price">Price: 5 Kisses </p>
+                <button class="add-btn" onclick="addToCart('Sweater')">Add to Cart</button>
+            </div>
+        </div>
+        <div class="product-card">
+            <div class="product-image">
+                <img src="assets/shoes.jpg" alt="Gift 4">
+            </div>
+            <div class="product-info">
+                <h3> Sneakers </h3>
+                <p class="price">Price: 7 Kisses </p>
+                <button class="add-btn" onclick="addToCart('Sneakers')">Add to Cart</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="cart-section">
+        <h3>Your Cart: <span id="cart-count">0</span> items</h3>
+        <button id="checkout-btn" class="checkout-btn" onclick="checkout()">Place Order 🛍️</button>
+    </div>
+</section>
+
+<section class="date-section hidden">
+    <h2>✨ Build Our Dream Date ✨</h2>
+    <p class="subtitle">Tap the pictures to choose!</p>
+
+    <div class="date-container">
+        
+        <div class="category-group">
+            <h3>1. What are we eating? 🍔</h3>
+            <div class="options-grid" id="food-options">
+                <div class="option-card" onclick="selectOption('food', '5401', this)">
+                    <img src="assets/egg-noodle-with-red-roasted-pork-wonton-table.jpg" alt="Street Food">
+                    <p>Street Food 🥟</p>
+                </div>
+                <div class="option-card" onclick="selectOption('food', '5402', this)">
+                    <img src="assets/1.webp" alt="Cafe">
+                    <p>Cute Cafe ☕</p>
+                </div>
+                <div class="option-card" onclick="selectOption('food', '5403', this)">
+                    <img src="assets/dinner.jpg" alt="Dinner">
+                    <p>Fancy Dinner 🍝</p>
+                </div>
+            </div>
+            <input type="hidden" id="selected-food" value="">
+        </div>
+
+        <div class="category-group">
+            <h3>2. What are we gonna do? (Main Date) ✨</h3>
+            <div class="options-grid" id="vibe-options">
+                <div class="option-card" onclick="selectOption('vibe', '7801', this)">
+                    <img src="assets/jazz2.jpg" alt="Romantic">
+                    <p>Live Jazz Concert</p>
+                </div>
+                <div class="option-card" onclick="selectOption('vibe', '7802', this)">
+                    <img src="assets/game.webp" alt="Fun">
+                    <p>Gaming Parlour 👾</p>
+                </div>
+                <div class="option-card" onclick="selectOption('vibe', '7803', this)">
+                    <img src="assets/art2.avif" alt="Cozy">
+                    <p>Art & Pottery session 🧸</p>
+                </div>
+            </div>
+            <input type="hidden" id="selected-vibe" value="">
+        </div>
+
+        <div class="category-group">
+            <h3>3. Post Date Activity?🛵</h3>
+            <div class="options-grid" id="travel-options">
+                <div class="option-card" onclick="selectOption('travel', '9501', this)">
+                    <img src="assets/hall.jpg" alt="Scooty">
+                    <p>Moive</p>
+                </div>
+                <div class="option-card" onclick="selectOption('travel', '9502', this)">
+                    <img src="assets/car.jpg" alt="Car">
+                    <p>Long Drive🚖</p>
+                </div>
+            </div>
+            <input type="hidden" id="selected-travel" value="">
+        </div>
+
+        <div class="category-group">
+            <h3>4. Any Special Wishes? 📝</h3>
+            <textarea id="extra-notes" placeholder="Tell me specifically what you want..."></textarea>
+        </div>
+
+        <button class="book-btn" onclick="sendDatePlan()">Send Invitation 💌</button>
+    </div>
+</section>
+
+<footer>
+        <div class="footer-content">
+            <p>Made with <span class="heart-beat">❤️</span> by <strong>Aman Singh</strong></p>
+            <p class="sub-footer">Built specifically for Dipali</p>
+            <p class="copyright">© 2026 | All Rights Reserved @amansinngh</p>
+        </div>
+    </footer>
+
+
+    <script src="script.js"></script>
+</body>
+</html>
